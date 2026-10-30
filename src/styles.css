@@ -43,20 +43,20 @@
   --color-evidence-gray-soft: var(--evidence-gray-soft);
 }
 :root {
-  --background: oklch(0.90 0.005 250);
+  --background: oklch(0.975 0.009 210);
   --foreground: oklch(0.24 0.012 255);
-  --card: oklch(0.94 0.003 250);
+  --card: oklch(0.998 0.002 210);
   --primary: oklch(0.26 0.03 255);
   --primary-foreground: oklch(0.99 0.002 240);
-  --secondary: oklch(0.915 0.005 250);
-  --muted: oklch(0.895 0.005 250);
+  --secondary: oklch(0.95 0.018 205);
+  --muted: oklch(0.95 0.012 220);
   --muted-foreground: oklch(0.43 0.015 252);
   --accent: oklch(0.949 0.022 188);
-  --border: oklch(0.78 0.007 250);
+  --border: oklch(0.88 0.016 220);
   --destructive: oklch(0.58 0.19 25);
   --ink: oklch(0.99 0.002 240);
   --ink-muted: oklch(0.78 0.022 244);
-  --brand: oklch(0.48 0.089 188);
+  --brand: oklch(0.45 0.10 185);
   --brand-soft: oklch(0.956 0.024 185);
   --identity-blue: oklch(0.55 0.14 247);
   --identity-green: oklch(0.57 0.12 175);
@@ -638,3 +638,98 @@ html.a11y-contrast {
 }
 html.a11y-contrast a:focus-visible, html.a11y-contrast button:focus-visible { outline: 3px solid oklch(0 0 0); outline-offset: 2px; }
 
+/* A brighter editorial surface with finite, optional motion. */
+@layer components {
+  .utility-bar {
+    background: linear-gradient(110deg, var(--primary), oklch(0.34 0.075 220));
+  }
+  .masthead { height: 112px; }
+  .nav-link {
+    transition: color 180ms ease, background-color 180ms ease;
+    border-radius: 6px 6px 0 0;
+  }
+  .nav-link:hover { background: var(--brand-soft); }
+  .consultation-hero {
+    margin: 24px auto 0;
+    width: min(1320px, calc(100% - 48px));
+    min-height: 390px;
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    box-shadow: 0 18px 60px oklch(0.28 0.05 215 / 0.08);
+  }
+  .consultation-hero::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background: linear-gradient(var(--identity-blue), var(--identity-green));
+    pointer-events: none;
+  }
+  .consultation-brand { letter-spacing: -0.035em; font-size: clamp(32px, 4vw, 48px); }
+  .consultation-copy { padding-block: 48px; }
+  .feature { border-radius: 20px; box-shadow: 0 12px 32px oklch(0.25 0.04 240 / 0.12); }
+  :is(.article-card, .treatment-card, .quick-card, .finder-result) {
+    border-radius: 16px;
+    box-shadow: 0 4px 16px oklch(0.25 0.04 220 / 0.035);
+    transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+  }
+  .trust-panel, .finder-form, .next-steps { border-radius: 18px; }
+  .for-you-cta {
+    border-radius: 22px;
+    background: linear-gradient(115deg, var(--primary), oklch(0.34 0.075 205));
+    box-shadow: 0 12px 36px oklch(0.25 0.06 220 / 0.13);
+  }
+  .section-title h2::before {
+    height: 26px;
+    width: 5px;
+    border-radius: 99px;
+    background: linear-gradient(var(--identity-blue), var(--identity-green));
+  }
+  .story-image { transition: transform 500ms ease; }
+  :is(a, button):focus-visible { outline: 3px solid var(--brand); outline-offset: 4px; }
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  :is(.article-card, .treatment-card, .quick-card):hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px oklch(0.25 0.06 215 / 0.10);
+    border-color: var(--brand);
+  }
+  .article-card:hover .story-image { transform: scale(1.025); }
+  .for-you-button { transition: transform 200ms ease, box-shadow 200ms ease; }
+  .for-you-button:hover { transform: translateY(-2px); box-shadow: 0 5px 18px oklch(0 0 0 / 0.16); }
+}
+@keyframes portal-enter {
+  from { opacity: 0.65; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes portal-photo-enter {
+  from { transform: scale(1.035); }
+  to { transform: scale(1); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  main { animation: portal-enter 500ms ease-out; }
+  .consultation-copy { animation: portal-enter 650ms ease-out; }
+  .consultation-hero > img { animation: portal-photo-enter 1600ms ease-out; }
+  @supports (animation-timeline: view()) {
+    :is(.article-card, .quick-card, .section-title) {
+      animation: portal-enter linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 25%;
+    }
+  }
+}
+@media (max-width: 640px) {
+  .masthead { height: 86px; }
+  .consultation-hero { width: calc(100% - 24px); margin-top: 12px; border-radius: 20px; min-height: 460px; }
+  .consultation-copy { padding-block: 28px; }
+  .consultation-brand { font-size: 32px; }
+  .feature { border-radius: 16px; }
+}
+html.a11y-contrast :is(.utility-bar, .for-you-cta) { background: var(--primary); }
+html.a11y-contrast :is(.article-card, .treatment-card, .quick-card, .consultation-hero, .feature) { box-shadow: none; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
