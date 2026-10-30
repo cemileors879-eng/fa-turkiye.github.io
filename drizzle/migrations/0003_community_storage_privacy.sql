@@ -1,0 +1,2 @@
+CREATE POLICY "Community media never directly accessible to visitors" ON storage.objects AS RESTRICTIVE FOR ALL TO anon, authenticated USING (bucket_id <> 'community-images') WITH CHECK (bucket_id <> 'community-images');
+COMMENT ON TABLE public.community_posts IS 'FA Türkiye moderation: approve status for text and image_status for image separately; hidden/rejected disables public access. Delete comments in Cloud data editor; permanently delete associated image_path files in Cloud Storage. Reports are in community_reports, with pending/reviewed/dismissed status.';
