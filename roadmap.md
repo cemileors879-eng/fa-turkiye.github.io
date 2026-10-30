@@ -1,0 +1,37 @@
+# FA Türkiye
+- [x] Add the SGT-212 EU orphan-designation news and library update; preserve trial/calendar data and verify preview without publishing.
+- [x] Show only Skyclarys in Treatments; expose preserved candidate details/news under Clinical Research.
+- [x] Add prominent calendar access and swipeable accessible mobile navigation; verify desktop/mobile and tests.
+- [x] Expand three separate research news articles with detailed official evidence, safety and attributed comments.
+- [x] Expand every library detail with purpose, mechanism, eligibility/approval, evidence, safety and official access sources; preserve existing records.
+- [x] Verify full news/library reading flows, sources, tests and desktop/mobile without publishing.
+- [x] Add three officially verified LX2006, nomlabofusp and vatiquinone news cards with Turkey participation/contact details; verify desktop/mobile without publishing.
+- [x] Build FA Türkiye Topluluğu life-story feed with titles, multiple moderated photos and threaded comments/replies.
+- [x] Verify story/comment/media approval, reporting, hiding, privacy and desktop/mobile without publishing.
+- [x] Add independently moderated safe video links, upload feedback and association gallery scaffold.
+- [x] Verify video rejection/approval/hiding/reporting and mobile layout; preserve existing pages without publishing.
+- [x] Rename community to FA Türkiye after Clinical Research and add private moderated image uploads.
+- [x] Verify uploaded-image approval/hiding, reports, limits and mobile/desktop layout.
+- [x] Add persistent anonymous/alias community submissions, pre-publication moderation and private abuse reporting.
+- [x] Verify community submission, approved readback, reports, privacy boundaries and desktop/mobile layout.
+- [x] Build Turkish news portal and all navigation pages.
+- [x] Add sourced internal research articles and cautious treatment tracking.
+- [x] Implement search and treatment/phase/year filters.
+- [x] Verify article navigation, filters and mobile layout.
+- [x] Assign distinct topic-specific covers to every existing news record without changing editorial text or card dimensions.
+- [x] Require explicit per-article covers and verify uniqueness, navigation, filters and desktop/mobile rendering.
+- [x] Build drug & treatment library with categories, filters, detail pages and sources.
+- [x] Apply photographic consultation hero and unique realistic scientific covers, preserving all editorial content and library functionality.
+- [x] Verify desktop/mobile navigation, filters, article and library pages, and image rendering.
+- [x] Verify active FA pipeline candidates and distinguish inactive leriglitazone from Larimar's nomlabofusp.
+- [x] Expand clickable research calendar and consistent sourced candidate detail fields without removing existing content.
+- [x] Test candidate links, filters, mobile navigation and build diagnostics.
+- [x] Group LX2006 clinical news under one candidate, expose both trials in its calendar card/detail, and verify desktop/mobile and tests.
+- [x] Regenerate all 9 site photos in documentary/editorial realism (natural light, real clinical/lab settings), delete 6 unused synthetic-looking legacy images, verify desktop/mobile and tests.
+- [x] Araştırma Takip Merkezi: aşama etiketleri, Türkiye'den katılım, resmi iletişim, ana sayfa son gelişmeler.
+- [x] Takip Merkezi: uygun araştırma bulucu, kayıt güncelleme/alım durumu, çift onaylı bildirim aboneliği altyapısı.
+- [ ] Bildirim e-postalarını göndermek: ayrı bir bülten/e-posta hizmeti bağlanması gerekiyor.
+- [x] NBIB-223 FACET haberi ekle, önizlemede doğrula, yayımla
+- [ ] A planı: ana sayfa sadeleştirme, FADERN bağlantısı, GV101 haber/kütüphane/takvim, iletişim ayrımı (yayın yok)
+- [x] B planı: haber tekilleştirme, Klinik Araştırmalara Katılım sayfası, alt başlık, 14 Ekim tarihi, erişilebilirlik modu, Bu hafta ne değişti? (yayın yok)
+

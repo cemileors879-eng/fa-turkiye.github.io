@@ -1,0 +1,63 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1791505656145,
+      "tag": "0000_community_premoderated_posts",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1791505897689,
+      "tag": "0001_restrict_community_public_grants",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1791505966627,
+      "tag": "0002_community_image_moderation",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1791506140759,
+      "tag": "0003_community_storage_privacy",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1791506182109,
+      "tag": "0004_community_safe_video_links",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1791506282534,
+      "tag": "0005_protect_unapproved_video_links",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1791506405752,
+      "tag": "0006_community_story_threads",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1791514481997,
+      "tag": "0007_research_alert_subscriptions",
+      "breakpoints": true
+    }
+  ]
+}
+
