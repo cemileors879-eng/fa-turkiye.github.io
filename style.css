@@ -24,3 +24,10 @@ body:not(.contrast)::before{content:"";position:fixed;inset:0;z-index:-1;pointer
 @media(hover:hover) and (pointer:fine){.news-card:hover img{transform:scale(1.035)}}
 @media(max-width:720px){.hero>*,.hero .art{animation-duration:.55s}.news-card,.card,.event,.profile,.panel{transition-duration:.2s}}
 @media(prefers-reduced-motion:reduce){body::before,.hero>*,.hero .art,.gradient-title{animation:none!important}.news-card,.card,.event,.profile,.panel,.news-card img,.btn,.button{transition:none!important}}
+
+/* News cards reveal on touch screens as they enter the viewport. */
+.news-card{isolation:isolate}
+.news-card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;border:1px solid #75efdf00;box-shadow:inset 0 0 0 1px #b59aff00;transition:border-color .7s ease,box-shadow .7s ease}
+.news-card.reveal-ready.is-visible::after{border-color:#75efdf6b;box-shadow:inset 0 0 24px #75efdf12,0 0 28px #b59aff20}
+@media(pointer:coarse){.news-card.reveal-ready.is-visible{box-shadow:0 18px 48px #0005,0 0 28px #75efdf18}}
+@media(prefers-reduced-motion:reduce){.news-card::after{transition:none;box-shadow:none;border-color:transparent}.news-card.reveal-ready.is-visible{box-shadow:none}}
