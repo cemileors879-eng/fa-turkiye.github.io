@@ -37,7 +37,7 @@
   addEventListener('scroll',()=>{if(!scrollFrame)scrollFrame=requestAnimationFrame(updateScroll);},{passive:true});addEventListener('resize',updateScroll);addEventListener('load',updateScroll);updateScroll();
   // Only prepared observer targets are hidden; a fallback reveals all content.
   if('IntersectionObserver' in window && !reduce.matches){
-    const items=[...document.querySelectorAll('main .card,main .panel,main .event,main .sectionhead')];
+    const items=[...document.querySelectorAll('main .card,main .news-card,main .panel,main .event,main .sectionhead')];
     const reveal=el=>{el.classList.add('is-visible');setTimeout(()=>{el.classList.remove('reveal-prep','reveal-ready');if(el.matches('.card')&&fine.matches&&!reduce.matches)el.classList.add('tilt');},850);};
     const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){reveal(entry.target);observer.unobserve(entry.target);}}),{threshold:.08});
     items.forEach((el,i)=>{el.style.setProperty('--delay',`${(i%3)*65}ms`);observer.observe(el);if(el.getBoundingClientRect().top>innerHeight){el.classList.add('reveal-prep');requestAnimationFrame(()=>el.classList.add('reveal-ready'));}});
