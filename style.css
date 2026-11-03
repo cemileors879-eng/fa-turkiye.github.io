@@ -8,3 +8,19 @@
 /* Detail pages use a single-column introduction rather than the home hero. */
 :root{--green:var(--blue);--card:var(--glass);--peach:var(--purple)}
 .hero:not(section){display:block;padding-block:45px 25px}.hero:not(section) h1{font-size:clamp(2.5rem,5.5vw,4.5rem);max-width:900px}.hero:not(section) p{max-width:800px}.calendar-link{color:var(--ink)}.calendar-link a{color:var(--blue)}.event b{color:var(--blue)}
+
+
+/* November 2026: restrained futuristic motion and visual depth */
+@keyframes fa-ambient-drift{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(2.5%, -3%,0)}}
+@keyframes fa-hero-appear{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fa-shimmer{from{background-position:0% 50%}to{background-position:100% 50%}}
+body:not(.contrast)::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 44% 36% at 12% 16%,#8264de20,transparent 75%),radial-gradient(ellipse 40% 40% at 90% 74%,#34d4c21b,transparent 76%);animation:fa-ambient-drift 19s ease-in-out infinite}
+.hero>*,.hero .art{animation:fa-hero-appear .8s both cubic-bezier(.2,.7,.2,1)}
+.hero .art{animation-delay:.14s}
+.gradient-title{background-size:200% 200%;animation:fa-shimmer 9s ease-in-out infinite alternate}
+.news-card,.card,.event,.profile,.panel{transition:transform .32s ease,box-shadow .32s ease,border-color .32s ease}
+@media(hover:hover) and (pointer:fine){.news-card:hover,.card:hover,.event:hover,.profile:hover{transform:translateY(-6px);border-color:#75efdf65;box-shadow:0 22px 60px #0005,0 0 28px #75efdf13}.btn:hover,.button:hover{transform:translateY(-2px)}}
+.news-card img{transition:transform .5s ease}
+@media(hover:hover) and (pointer:fine){.news-card:hover img{transform:scale(1.035)}}
+@media(max-width:720px){.hero>*,.hero .art{animation-duration:.55s}.news-card,.card,.event,.profile,.panel{transition-duration:.2s}}
+@media(prefers-reduced-motion:reduce){body::before,.hero>*,.hero .art,.gradient-title{animation:none!important}.news-card,.card,.event,.profile,.panel,.news-card img,.btn,.button{transition:none!important}}
