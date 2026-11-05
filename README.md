@@ -31,8 +31,4 @@ npm run dev
 
 ## GitHub Pages DNA illustration
 
-The static homepage (`index.html`) uses `dna-viewer.js` for a dependency-free perspective DNA illustration. Serve the repository root with a static HTTP server to preview it; the TanStack build is a separate application.
-
-Drag horizontally or use the labeled rotation buttons. The viewer supports pause/resume, reduced motion, keyboard controls, a static SVG fallback, capped pixel density, and pauses rendering when offscreen or the page is hidden. It is a schematic illustration, not an accurate molecular model. No Tripo account, API key, or remote 3D asset is required.
-
-Keyboard users can reach rotation buttons with Tab and activate them with Enter or Space.
+The static homepage (`index.html`) uses `dna-viewer.js` for a dependency-free, automatically rotating perspective DNA illustration. There are no playback or rotation controls. The viewer respects reduced motion, includes a static SVG fallback, caps pixel density and stops rendering while offscreen or the page is hidden. It is a schematic illustration, not an accurate molecular model. No Tripo account, API key or remote 3D asset is required.

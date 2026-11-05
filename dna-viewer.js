@@ -6,10 +6,9 @@
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
   const stage = document.getElementById('dna-stage');
-  const play = document.getElementById('dna-play');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   let angle = 0.4, running = !reduced.matches, visible = false;
-  let frame = 0, last = 0, width = 0, height = 0, drag = null;
+  let frame = 0, last = 0, width = 0, height = 0;
   const project = (t, side) => {
     const phase = t * Math.PI * 4 + angle + side * Math.PI;
     const x = Math.cos(phase) * 70;
@@ -61,8 +60,6 @@
   }
   function sync() {
     cancelAnimationFrame(frame); frame = 0; last = 0;
-    play.textContent = running ? 'Durdur' : 'Döndür';
-    play.setAttribute('aria-pressed', String(running));
     if (running && visible && !document.hidden) frame = requestAnimationFrame(tick);
   }
   function resize() {
@@ -71,23 +68,8 @@
     canvas.width = Math.round(width * ratio); canvas.height = Math.round(height * ratio);
     ctx.setTransform(ratio, 0, 0, ratio, 0, 0); draw();
   }
-  play.addEventListener('click', () => { running = !running; sync(); });
-  document.querySelectorAll('[data-dna-turn]').forEach(button => button.addEventListener('click', () => {
-    running = false; angle += Number(button.dataset.dnaTurn) * Math.PI / 8; sync(); draw();
-  }));
-  stage.addEventListener('pointerdown', e => {
-    if (!e.isPrimary || e.button !== 0) return;
-    running = false; sync(); drag = { id: e.pointerId, x: e.clientX }; stage.setPointerCapture(e.pointerId);
-  });
-  stage.addEventListener('pointermove', e => {
-    if (!drag || drag.id !== e.pointerId) return;
-    angle += (e.clientX - drag.x) * 0.012; drag.x = e.clientX; draw();
-  });
-  ['pointerup', 'pointercancel', 'lostpointercapture'].forEach(type => stage.addEventListener(type, () => { drag = null; }));
-  reduced.addEventListener('change', () => { if (reduced.matches) { running = false; sync(); } });
+  reduced.addEventListener('change', () => { running = !reduced.matches; sync(); });
   document.addEventListener('visibilitychange', sync);
-  stage.addEventListener('focusin', e => { if (e.target.matches(':focus-visible')) { running = false; sync(); } });
-  document.getElementById('dna-controls').addEventListener('focusin', e => { if (e.target.matches(':focus-visible')) { running = false; sync(); } });
   if ('IntersectionObserver' in window) new IntersectionObserver(entries => { visible = entries[0].isIntersecting; sync(); }).observe(stage);
   else visible = true;
   if ('ResizeObserver' in window) new ResizeObserver(resize).observe(stage);
@@ -95,6 +77,5 @@
   canvas.hidden = false; stage.querySelector('.dna-fallback').hidden = true;
   // SVG has no native hidden presentation in older browsers.
   stage.querySelector('.dna-fallback').style.display = 'none';
-  document.getElementById('dna-controls').hidden = false;
   resize(); sync();
 })();
